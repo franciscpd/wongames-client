@@ -1,11 +1,13 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { ThemeProvider } from 'styled-components'
 
 import GlobalStyles from 'styles/global'
+import theme from 'styles/theme'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>Boilerplate Next.JS</title>
         <link
@@ -26,9 +28,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3423A6" />
-        <meta name="msapplication-TileColor" content="#3423a6" />
-        <meta name="theme-color" content="#171738" />
         <meta
           name="description"
           content="A simple project starter to work with typescript, react, next.js and styled component"
@@ -36,7 +35,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   )
 }
 
